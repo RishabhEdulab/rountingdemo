@@ -1,7 +1,14 @@
 const express = require('express')
 const app = express()
 const port = 3001
+const bodyParser = require('body-parser')
 const reg = require('./auth/reg');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 // GET method route
 app.get('/', (req, res) => {
